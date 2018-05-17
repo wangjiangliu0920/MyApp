@@ -10,5 +10,12 @@
         android:layout_height="wrap_content">
 
     </com.icecold.navigationview.widget.MyCircleBanner>
+    <com.icecold.navigationview.widget.MyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="测试文字"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="200dp"
+        />
 
 </LinearLayout>

@@ -60,7 +60,10 @@ public class MyCircleBanner extends ViewPager {
     private OnPageChangeListener mOnPageChangeListener = new OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+//            Logger.d("onPageScrolled------->"
+//                +"      position:"+position
+//                +"      positionOffset:"+positionOffset
+//                +"      positionOffsetPixels:"+positionOffsetPixels);
         }
 
         @Override
