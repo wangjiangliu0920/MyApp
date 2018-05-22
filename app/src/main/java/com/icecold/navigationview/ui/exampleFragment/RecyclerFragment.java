@@ -14,6 +14,7 @@ import com.icecold.navigationview.dataModle.DataModleTwo;
 import com.icecold.navigationview.ui.RxJavaExample;
 import com.icecold.navigationview.ui.banner.BannerActivity;
 import com.icecold.navigationview.ui.base.BaseFragment;
+import com.icecold.navigationview.ui.customControl.PieActivity;
 import com.icecold.navigationview.ui.exampleFragment.adapter.DemoAdapter;
 import com.icecold.navigationview.ui.exampleFragment.listener.ItemClickSupport;
 
@@ -86,13 +87,21 @@ public class RecyclerFragment extends BaseFragment {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View view) {
                 showToastMessage("按下第"+position+"的位置");
-                if (position == 1){
-                    Intent intent = new Intent(getActivity(), RxJavaExample.class);
-                    startActivity(intent);
-                }
-                if (position == 2){
-                    Intent intent = new Intent(getActivity(), BannerActivity.class);
-                    startActivity(intent);
+                switch (position){
+                    case 0:
+                        Intent intent0 = new Intent(getActivity(), PieActivity.class);
+                        startActivity(intent0);
+                        break;
+                    case 1:
+                        Intent intent1 = new Intent(getActivity(), RxJavaExample.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(getActivity(), BannerActivity.class);
+                        startActivity(intent2);
+                        break;
+                    default:
+                        break;
                 }
             }
         });

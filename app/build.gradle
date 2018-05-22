@@ -9,12 +9,14 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE : "default"]//解决android studio3.0无法及时更新R文件的问题
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //解决android studio3.0无法及时更新R文件的问题
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
