@@ -8,6 +8,17 @@
     <com.icecold.navigationview.widget.PieChart
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="300dp" />
+    <com.icecold.navigationview.widget.CheckView
+        android:id="@+id/checkView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+    <Button
+        android:id="@+id/checkBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选中"
+        android:textColor="#ff000000"
+        />
 
 </LinearLayout>

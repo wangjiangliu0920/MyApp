@@ -1,11 +1,14 @@
 package com.icecold.navigationview.ui.customControl;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.icecold.navigationview.R;
 import com.icecold.navigationview.dataModle.PieDataEntity;
 import com.icecold.navigationview.ui.base.BaseActivity;
+import com.icecold.navigationview.widget.CheckView;
 import com.icecold.navigationview.widget.PieChart;
 
 import java.util.ArrayList;
@@ -16,11 +19,13 @@ import java.util.List;
  * Created by icecold_laptop_2 on 2018/5/22.
  */
 
-public class PieActivity extends BaseActivity {
+public class PieActivity extends BaseActivity implements View.OnClickListener {
 
     private PieChart pieChart;
     private int[] mColors = {0xFFCCFF00, 0xFF6495ED, 0xFFE32636, 0xFF800000, 0xFF808000, 0xFFFF8C69, 0xFF808080,
             0xFFE6B800, 0xFF7CFC00};
+    private Button checkButton;
+    private CheckView checkView;
 
     @Override
     protected int getLayoutId() {
@@ -52,5 +57,14 @@ public class PieActivity extends BaseActivity {
     @Override
     protected void initViews(Bundle savedInstanceState) {
         pieChart = findViewById(R.id.pieChart);
+        checkButton = findViewById(R.id.checkBt);
+        checkView = findViewById(R.id.checkView);
+        checkButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        checkView.setAnimationDuration(13000);
+        checkView.check();
     }
 }
