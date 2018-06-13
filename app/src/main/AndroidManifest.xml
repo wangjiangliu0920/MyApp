@@ -27,6 +27,7 @@
             />
         <activity android:name=".ui.banner.BannerActivity" />
         <activity android:name=".ui.customControl.PieActivity" />
+        <activity android:name=".ui.customControl.LeafLoadingActivity" />
     </application>
 
 </manifest>

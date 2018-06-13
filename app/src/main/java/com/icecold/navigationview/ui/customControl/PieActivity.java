@@ -51,6 +51,7 @@ public class PieActivity extends BaseActivity implements View.OnClickListener {
                 Toast.makeText(PieActivity.this, String.format("点击的位置 = %d", position),Toast.LENGTH_SHORT).show();
             }
         });
+        pieChart.setAnimation(2500);
         pieChart.setDataList(dataEntities);
     }
 

@@ -1,5 +1,7 @@
 package com.icecold.navigationview.widget;
 
+import android.animation.TimeInterpolator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.icecold.navigationview.dataModle.PieDataEntity;
 import com.icecold.navigationview.util.CalculateUtil;
@@ -59,6 +62,7 @@ public class PieChart extends View {
      * 记录点击的位置是属于哪个位置的扇形,初始值为负数是为了作为一个标识使用
      */
     private int position = -1;
+    private float percent = 1;
 
     public PieChart(Context context) {
         super(context);
@@ -139,6 +143,20 @@ public class PieChart extends View {
     public void setOnItemPieClickListener(OnItemPieClickListener onItemPieClickListener){
         mOnItemPieClickListener = onItemPieClickListener;
     }
+    TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
+    public void setAnimation(int duration){
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(0,1);
+        valueAnimator.setDuration(duration);
+        valueAnimator.setInterpolator(interpolator);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                percent = (float) animation.getAnimatedValue();
+                invalidate();
+            }
+        });
+        valueAnimator.start();
+    }
 
     private void drawEachArea(Canvas canvas) {
 
@@ -150,6 +168,7 @@ public class PieChart extends View {
         for (int i = 0; i < mDataList.size(); i++) {
 
             float sweepAngle = mDataList.get(i).getValue() / mTotleBlock * 360 - 1;
+            sweepAngle *= percent;
             mPaint.setColor(mDataList.get(i).getColor());
             if (position-1 == i){
                 canvas.drawArc(mTouchRectF,startAngle,sweepAngle,true,mPaint);

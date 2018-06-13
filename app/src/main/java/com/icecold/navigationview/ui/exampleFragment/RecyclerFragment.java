@@ -14,6 +14,7 @@ import com.icecold.navigationview.dataModle.DataModleTwo;
 import com.icecold.navigationview.ui.RxJavaExample;
 import com.icecold.navigationview.ui.banner.BannerActivity;
 import com.icecold.navigationview.ui.base.BaseFragment;
+import com.icecold.navigationview.ui.customControl.LeafLoadingActivity;
 import com.icecold.navigationview.ui.customControl.PieActivity;
 import com.icecold.navigationview.ui.exampleFragment.adapter.DemoAdapter;
 import com.icecold.navigationview.ui.exampleFragment.listener.ItemClickSupport;
@@ -99,6 +100,10 @@ public class RecyclerFragment extends BaseFragment {
                     case 2:
                         Intent intent2 = new Intent(getActivity(), BannerActivity.class);
                         startActivity(intent2);
+                        break;
+                    case 3:
+                        Intent intent3 = new Intent(getActivity(), LeafLoadingActivity.class);
+                        startActivity(intent3);
                         break;
                     default:
                         break;
